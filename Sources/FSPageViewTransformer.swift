@@ -44,9 +44,7 @@ open class FSPagerViewTransformer: NSObject {
     
     // Apply transform to attributes - zIndex: Int, frame: CGRect, alpha: CGFloat, transform: CGAffineTransform or transform3D: CATransform3D.
     open func applyTransform(to attributes: FSPagerViewLayoutAttributes) {
-        guard let pagerView = self.pagerView else {
-            return
-        }
+        guard let pagerView else { return }
         let position = attributes.position
         let scrollDirection = pagerView.scrollDirection
         let itemSpacing = (scrollDirection == .horizontal ? attributes.bounds.width : attributes.bounds.height) + self.proposedInteritemSpacing()
